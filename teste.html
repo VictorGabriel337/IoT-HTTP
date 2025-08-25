@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="stylesheet" href="teste.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle do LED ESP8266</title>
+</head>
+<body>
+  <h1>Controle do LED (ESP8266 via HTTP)</h1>
+  <button onclick="ligar()">Ligar LED</button>
+  <button onclick="desligar()">Desligar LED</button>
+  <p id="status">Status: Desconhecido</p>
+
+  <script>
+    const espIP = "http://192.168.15.5"; // Troque pelo IP do ESP
+
+    async function ligar() {
+      let res = await fetch(espIP + "/led/on");
+      let data = await res.json();
+      document.getElementById("status").innerText = "Status: " + data.led;
+    }
+
+    async function desligar() {
+      let res = await fetch(espIP + "/led/off");
+      let data = await res.json();
+      document.getElementById("status").innerText = "Status: " + data.led;
+    }
+  </script>
+</body>
+</html>

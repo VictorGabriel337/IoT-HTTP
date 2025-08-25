@@ -1,0 +1,74 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Corpo da página */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* Título */
+h1 {
+  margin-bottom: 20px;
+  color: #222;
+  text-align: center;
+}
+
+/* Status do LED */
+#status {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Botões */
+button {
+  padding: 15px 30px;
+  margin: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #fff;
+}
+
+/* Botão ligar (verde) */
+button:nth-of-type(1) {
+  background-color: #28a745;
+}
+
+button:nth-of-type(1):hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Botão desligar (vermelho) */
+button:nth-of-type(2) {
+  background-color: #dc3545;
+}
+
+button:nth-of-type(2):hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Mensagem de status ligada/desligada com cores */
+#status:contains("on") {
+  color: #28a745;
+}
+
+#status:contains("off") {
+  color: #dc3545;
+}
