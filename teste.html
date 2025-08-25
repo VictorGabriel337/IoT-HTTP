@@ -14,17 +14,16 @@
   <script>
     const espIP = "http://192.168.15.5"; // Troque pelo IP do ESP
 
-    async function ligar() {
-      let res = await fetch(espIP + "/led/on");
-      let data = await res.json();
-      document.getElementById("status").innerText = "Status: " + data.led;
-    }
-
-    async function desligar() {
-      let res = await fetch(espIP + "/led/off");
-      let data = await res.json();
-      document.getElementById("status").innerText = "Status: " + data.led;
-    }
+ function ligar() {
+    fetch("http://127.0.0.1:5000/led/on", { method: "POST" })
+        .then(res => res.json())
+        .then(data => console.log(data));
+}
+function desligar() {
+    fetch("http://127.0.0.1:5000/led/off", { method: "POST" })
+        .then(res => res.json())
+        .then(data => console.log(data));
+}
   </script>
 </body>
 </html>
