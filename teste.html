@@ -12,17 +12,20 @@
   <p id="status">Status: Desconhecido</p>
 
   <script>
-    const espIP = "http://192.168.15.6"; // Troque pelo IP do ESP
+const backendURL = "http://192.168.1.100:5000";  // Substitua pelo IP da sua máquina
 
- function ligar() {
-    fetch("http://127.0.0.1:5000/led/on", { method: "POST" })
+function ligar() {
+    fetch(`${backendURL}/led/on`, { method: "POST" })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch(error => console.log("Erro:", error));
 }
+
 function desligar() {
-    fetch("http://127.0.0.1:5000/led/off", { method: "POST" })
+    fetch(`${backendURL}/led/off`, { method: "POST" })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch(error => console.log("Erro:", error));
 }
   </script>
 </body>
