@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-ESP_IP = "192.168.15.5"  # IP do seu ESP na rede local
+ESP_IP = "192.168.15.6"  # IP do seu ESP na rede local
 
 @app.route("/led/<action>", methods=["POST"])
 def led_control(action):
