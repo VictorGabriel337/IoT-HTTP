@@ -1,8 +1,11 @@
 # app.py
 from flask import Flask, request, jsonify
 import requests
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app)
 
 ESP_IP = "192.168.15.6"  # IP do seu ESP na rede local
 
